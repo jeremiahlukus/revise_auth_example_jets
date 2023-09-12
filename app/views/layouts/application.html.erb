@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%= csrf_meta_tags %>
+    <title>Jets App</title>
+    <%= javascript_pack_tag "application" %>
+    <%= stylesheet_pack_tag "theme" %>
+    <link rel="shortcut icon" href="<%= favicon_path %>">
+  </head>
+  <body>
+    <section class="starter">
+
+      <nav>
+        <%= link_to "Home", root_path %>
+
+        <% if user_signed_in? %>
+          <%= link_to "Profile", profile_path %>
+          <%= button_to "Log out", 'logout', method: :delete %>
+        <% else %>
+          <%= link_to "Sign Up", sign_up_path %>
+          <%= link_to "Log in", login_path %>
+        <% end %>
+      </nav>
+
+      <%= yield %>
+    </section>
+  </body>
+</html>
